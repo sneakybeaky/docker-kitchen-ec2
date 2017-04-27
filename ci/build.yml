@@ -1,0 +1,20 @@
+resources:
+- name: kitchen-ec2
+  type: git
+  source:  
+    uri: https://github.com/sneakybeaky/docker-kitchen-ec2.git
+    branch: master
+
+- name: kitchen-ec2-image
+  type: docker-image
+  source:
+    repository: sneakybeaky/kitchen-ec2
+    username: {{docker-repo-username}}
+    password: {{docker-repo-password}}
+
+jobs:
+- name: build-docker-image
+  plan:
+  - get: kitchen-ec2
+  - put: kitchen-ec2-image
+    params: {build: kitchen-ec2}
