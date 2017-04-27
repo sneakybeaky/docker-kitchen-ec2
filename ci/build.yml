@@ -16,5 +16,6 @@ jobs:
 - name: build-docker-image
   plan:
   - get: kitchen-ec2
+    trigger: true
   - put: kitchen-ec2-image
     params: {build: kitchen-ec2}
