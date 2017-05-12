@@ -10,4 +10,4 @@ RUN apk update && \
     apk add $RUBY_PACKAGES && \
     rm -rf /var/cache/apk/*
 
-RUN gem install test-kitchen kitchen-ec2 berkshelf --no-document
+RUN gem install test-kitchen kitchen-ec2 berkshelf rspec-retry --no-document
